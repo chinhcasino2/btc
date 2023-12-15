@@ -1,7 +1,7 @@
 #ktpm
 Mô tả dự án:
   - Thiết kế 1 trò chơi game bài
-  - trò chơi offline => dễ tiếp cận người 
+  - trò chơi olnine => dễ tiếp cận người 
 Tài nguyên sử dụng của các game bài
 Tiền/Chip: Đây là tài nguyên chính trong hầu hết các game bài. Người chơi sử dụng tiền hoặc chip để đặt cược trong các ván chơi và tham gia các trò chơi bài.
 
