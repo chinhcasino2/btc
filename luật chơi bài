@@ -1,0 +1,8 @@
+Mỗi bên bắt đầu sẽ có trên tay 5 là bài. Mỗi bộ bài của người chơi tổng cộng có 35 là trong đó có 3 lá là quái thú xuất trận. 32 lá còn lại là những lá bài sẽ hỗ trợ quái thú xuất trận để đánh bại đối phương.
+Quái thú có điểm tấn công và máu của riêng mình mỗi quái thú sẽ có 3 chiêu tấn công hoặc sẽ có 1 số quái thú có 4 chiêu, chiêu 1 tấn công thường, chiêu 2 là kĩ năng của quái thú có hiệu ứng hoặc không, chiêu 3 là ulti, để sử dụng ulti quái thú phải tích cho mình 3 ngôi sao(ngôi sao dc tính bằng cách sử dụng chiêu 1 hoặc 2 hoặc sử dụng lá bài hỗ trợ),.
+Vào đầu trận người chơi sẽ phải chọn 1 trong 3 quái thú chủ chiến của mình để ra sân, những quái thú sẽ có những kĩ năng và số lượng máu lẫn mana cần tiêu thụ để sử dụng kĩ năng của mình, mana của mỗi người sẽ bắt đầu từ 4 và +1 sau mỗi hiệp của người chơi tối đa là 9 mana. Người chơi có thể sử dụng các là bài hỗ trợ bao nhiêu tùy muốn miễn là đủ mana để sử dụng, lượt của người chơi trong hiệp sẽ kết thúc khi họ tấn công hoặc không đủ mana để tấn công (trong trường hợp này người chơi phải bấm kết thúc lượt). Nếu 2 bên đã không còn mana và lá bài có thể sử dụng nữa hiệp sẽ kết thúc, bắt đầu 1 hiệp mới, đến khi 1 trong 2 đánh bại hết quái thú đối phương.
+Các quái thù sẽ dc chia ra làm các tộc khác nhau, mỗi quái thú đều sở hữu các hệ khác nhau, khi sử dụng chiêu 1 hoặc chiêu 2 hoặc chiêu 3 tùy vào các quái thú khác nhau có thể khắc dấu ấn hệ lên đó từ đó có các hiệu ứng bất lợi hoặc tăng thêm sát thương phải chịu dành cho quái thú bị dính phải.
+Các lá bài cx dc chia ra làm 3 loại: bài trang bị, bài hỗ trợ và bài môi trường. Đối với bài môi trường sẽ tăng hiệu ứng cho chủng loại quái thú phù hợp vs môi trường đó, bài môi trường chỉ tồn tại trên sân của người chơi.
+
+
+
