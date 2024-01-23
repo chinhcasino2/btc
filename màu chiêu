@@ -1,0 +1,41 @@
+using System;
+
+enum ElementColor
+{
+    Physical = ConsoleColor.White,
+    Lightning = ConsoleColor.Magenta,
+    Fire = ConsoleColor.Red,
+    Water = ConsoleColor.DarkBlue,
+    Ice = ConsoleColor.Cyan
+}
+
+class Monster
+{
+    public string Name { get; set; }
+    public ElementColor Element { get; set; }
+
+    public void Attack()
+    {
+        Console.ForegroundColor = (ConsoleColor)Element;
+        Console.WriteLine("Quái thú {0} tấn công!", Name);
+        Console.ResetColor();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Monster monster1 = new Monster { Name = "Vật lí", Element = ElementColor.Physical };
+        Monster monster2 = new Monster { Name = "Lôi", Element = ElementColor.Lightning };
+        Monster monster3 = new Monster { Name = "Hỏa", Element = ElementColor.Fire };
+        Monster monster4 = new Monster { Name = "Nước", Element = ElementColor.Water };
+        Monster monster5 = new Monster { Name = "Băng", Element = ElementColor.Ice };
+
+        monster1.Attack();
+        monster2.Attack();
+        monster3.Attack();
+        monster4.Attack();
+        monster5.Attack();
+    }
+}
