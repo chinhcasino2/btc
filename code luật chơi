@@ -1,0 +1,166 @@
+using System;
+using System.Collections.Generic;
+
+public class CardGame
+{
+    private int player1Mana;
+    private int player2Mana;
+    private List<string> player1Cards;
+    private List<string> player2Cards;
+    private int currentPlayer;
+    private bool isGameEnd;
+
+    public CardGame()
+    {
+        player1Mana = 4;
+        player2Mana = 4;
+        player1Cards = new List<string>();
+        player2Cards = new List<string>();
+        currentPlayer = 1;
+        isGameEnd = false;
+    }
+
+    public void StartGame()
+    {
+        Console.WriteLine("=== Card Game ===");
+        while (!isGameEnd)
+        {
+            Console.WriteLine("Player " + currentPlayer + "'s turn");
+            Console.WriteLine("Player " + currentPlayer + "'s mana: " + GetPlayerMana(currentPlayer));
+
+            // Draw 2 cards for each player at the beginning of a turn
+            DrawCards(currentPlayer, 2);
+
+            // Play the turn
+            PlayTurn();
+
+            // Check if the game should end
+            if (player1Mana == 0 && player2Mana == 0)
+            {
+                Console.WriteLine("Both players ran out of mana. Game over!");
+                isGameEnd = true;
+            }
+            else if (player1Cards.Count == 0 && player2Cards.Count == 0)
+            {
+                Console.WriteLine("Both players ran out of cards. Game over!");
+                isGameEnd = true;
+            }
+            else if (Console.ReadLine().ToLower() == "end")
+            {
+                Console.WriteLine("Player " + currentPlayer + " ended the turn.");
+                SwitchPlayer();
+            }
+
+            Console.WriteLine();
+        }
+    }
+
+    private void PlayTurn()
+    {
+        bool isTurnEnd = false;
+        int attackCount = 0;
+
+        while (!isTurnEnd)
+        {
+            Console.WriteLine("Choose an action:");
+            Console.WriteLine("1. Use skill 1");
+            Console.WriteLine("2. Use skill 2");
+            Console.WriteLine("3. Use skill 3");
+            Console.WriteLine("4. End turn");
+
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    UseSkill(1);
+                    break;
+                case "2":
+                    UseSkill(2);
+                    break;
+                case "3":
+                    if (attackCount < 3)
+                    {
+                        Console.WriteLine("Need to attack 3 times before using skill 3.");
+                    }
+                    else
+                    {
+                        UseSkill(3);
+                        attackCount = 0;
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("Player " + currentPlayer + " ended the turn.");
+                    isTurnEnd = true;
+                    SwitchPlayer();
+                    break;
+                default:
+                    Console.WriteLine("Invalid input. Please try again.");
+                    break;
+            }
+        }
+    }
+
+    private void UseSkill(int skillNumber)
+    {
+        int manaCost = skillNumber * 2;
+        int playerMana = GetPlayerMana(currentPlayer);
+
+        if (playerMana >= manaCost)
+        {
+            Console.WriteLine("Player " + currentPlayer + " used skill " + skillNumber);
+            SetPlayerMana(currentPlayer, playerMana - manaCost);
+        }
+        else
+        {
+            Console.WriteLine("Not enough mana to use skill " + skillNumber);
+        }
+    }
+
+    private int GetPlayerMana(int playerNumber)
+    {
+        return (playerNumber == 1) ? player1Mana : player2Mana;
+    }
+
+    private void SetPlayerMana(int playerNumber, int mana)
+    {
+        if (playerNumber == 1)
+        {
+            player1Mana = Math.Min(mana, 10);
+        }
+        else
+        {
+            player2Mana = Math.Min(mana, 10);
+        }
+    }
+
+    private void SwitchPlayer()
+    {
+        currentPlayer = (currentPlayer == 1) ? 2 : 1;
+    }
+
+    private void DrawCards(int playerNumber, int count)
+    {
+        List<string> playerCards = (playerNumber == 1) ? player1Cards : player2Cards;
+        for (int i = 0; i < count; i++)
+        {
+            if (playerCards.Count == 0)
+            {
+                Console.WriteLine("Player " + playerNumber + " ran out of cards.");
+                break;
+            }
+            string drawnCard = playerCards[0];
+            playerCards.RemoveAt(0);
+            Console.WriteLine("Player " + playerNumber + " drew a card: " + drawnCard);
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CardGame game = new CardGame();
+        game.StartGame();
+    }
+}
