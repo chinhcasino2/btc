@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+namespace GameBai
+{
+    public class Game
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Game> games = new List<Game>
+            {
+                new Game { Name = "Game 1", Description = "Mô tả về Game 1", Url = "game1.html" },
+                new Game { Name = "Game 2", Description = "Mô tả về Game 2", Url = "game2.html" },
+                new Game { Name = "Game 3", Description = "Mô tả về Game 3", Url = "game3.html" }
+            };
+
+            Console.WriteLine("Trang chủ Game Bài");
+            Console.WriteLine();
+
+            foreach (Game game in games)
+            {
+                Console.WriteLine($"Tên: {game.Name}");
+                Console.WriteLine($"Mô tả: {game.Description}");
+                Console.WriteLine($"Link: {game.Url}");
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Nhấn Enter để chơi game...");
+            Console.ReadLine();
+        }
+    }
+}
